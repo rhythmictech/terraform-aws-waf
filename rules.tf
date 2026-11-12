@@ -275,7 +275,12 @@ resource "aws_wafv2_web_acl" "default" {
                   for_each = lookup(field_to_match.value, "ja4_fingerprint", null) != null ? [field_to_match.value.ja4_fingerprint] : []
 
                   content {
-                    fallback_behavior = lookup(ja4_fingerprint.value, "fallback_behavior", "NO_MATCH")
+                    # Accepts either { fallback_behavior = "NO_MATCH" } or the bare string
+                    # "NO_MATCH". The string form matters when a caller keeps several
+                    # rules in one list: a list whose elements mix an object member with
+                    # null members in the same position cannot be unified, which is what
+                    # happens when the variable arrives as JSON.
+                    fallback_behavior = try(ja4_fingerprint.value.fallback_behavior, ja4_fingerprint.value)
                   }
                 }
               }
@@ -927,7 +932,12 @@ resource "aws_wafv2_web_acl" "default" {
                           for_each = lookup(field_to_match.value, "ja4_fingerprint", null) != null ? [field_to_match.value.ja4_fingerprint] : []
 
                           content {
-                            fallback_behavior = lookup(ja4_fingerprint.value, "fallback_behavior", "NO_MATCH")
+                            # Accepts either { fallback_behavior = "NO_MATCH" } or the bare string
+                            # "NO_MATCH". The string form matters when a caller keeps several
+                            # rules in one list: a list whose elements mix an object member with
+                            # null members in the same position cannot be unified, which is what
+                            # happens when the variable arrives as JSON.
+                            fallback_behavior = try(ja4_fingerprint.value.fallback_behavior, ja4_fingerprint.value)
                           }
                         }
                       }
@@ -1010,7 +1020,12 @@ resource "aws_wafv2_web_acl" "default" {
                               for_each = lookup(field_to_match.value, "ja4_fingerprint", null) != null ? [field_to_match.value.ja4_fingerprint] : []
 
                               content {
-                                fallback_behavior = lookup(ja4_fingerprint.value, "fallback_behavior", "NO_MATCH")
+                                # Accepts either { fallback_behavior = "NO_MATCH" } or the bare string
+                                # "NO_MATCH". The string form matters when a caller keeps several
+                                # rules in one list: a list whose elements mix an object member with
+                                # null members in the same position cannot be unified, which is what
+                                # happens when the variable arrives as JSON.
+                                fallback_behavior = try(ja4_fingerprint.value.fallback_behavior, ja4_fingerprint.value)
                               }
                             }
                           }
@@ -1223,7 +1238,12 @@ resource "aws_wafv2_web_acl" "default" {
                           for_each = lookup(field_to_match.value, "ja4_fingerprint", null) != null ? [field_to_match.value.ja4_fingerprint] : []
 
                           content {
-                            fallback_behavior = lookup(ja4_fingerprint.value, "fallback_behavior", "NO_MATCH")
+                            # Accepts either { fallback_behavior = "NO_MATCH" } or the bare string
+                            # "NO_MATCH". The string form matters when a caller keeps several
+                            # rules in one list: a list whose elements mix an object member with
+                            # null members in the same position cannot be unified, which is what
+                            # happens when the variable arrives as JSON.
+                            fallback_behavior = try(ja4_fingerprint.value.fallback_behavior, ja4_fingerprint.value)
                           }
                         }
                       }
@@ -1301,7 +1321,12 @@ resource "aws_wafv2_web_acl" "default" {
                                 for_each = lookup(field_to_match.value, "ja4_fingerprint", null) != null ? [field_to_match.value.ja4_fingerprint] : []
 
                                 content {
-                                  fallback_behavior = lookup(ja4_fingerprint.value, "fallback_behavior", "NO_MATCH")
+                                  # Accepts either { fallback_behavior = "NO_MATCH" } or the bare string
+                                  # "NO_MATCH". The string form matters when a caller keeps several
+                                  # rules in one list: a list whose elements mix an object member with
+                                  # null members in the same position cannot be unified, which is what
+                                  # happens when the variable arrives as JSON.
+                                  fallback_behavior = try(ja4_fingerprint.value.fallback_behavior, ja4_fingerprint.value)
                                 }
                               }
                             }
@@ -1442,7 +1467,12 @@ resource "aws_wafv2_web_acl" "default" {
                   for_each = lookup(field_to_match.value, "ja4_fingerprint", null) != null ? [field_to_match.value.ja4_fingerprint] : []
 
                   content {
-                    fallback_behavior = lookup(ja4_fingerprint.value, "fallback_behavior", "NO_MATCH")
+                    # Accepts either { fallback_behavior = "NO_MATCH" } or the bare string
+                    # "NO_MATCH". The string form matters when a caller keeps several
+                    # rules in one list: a list whose elements mix an object member with
+                    # null members in the same position cannot be unified, which is what
+                    # happens when the variable arrives as JSON.
+                    fallback_behavior = try(ja4_fingerprint.value.fallback_behavior, ja4_fingerprint.value)
                   }
                 }
               }
@@ -1584,7 +1614,12 @@ resource "aws_wafv2_web_acl" "default" {
                   for_each = lookup(field_to_match.value, "ja4_fingerprint", null) != null ? [field_to_match.value.ja4_fingerprint] : []
 
                   content {
-                    fallback_behavior = lookup(ja4_fingerprint.value, "fallback_behavior", "NO_MATCH")
+                    # Accepts either { fallback_behavior = "NO_MATCH" } or the bare string
+                    # "NO_MATCH". The string form matters when a caller keeps several
+                    # rules in one list: a list whose elements mix an object member with
+                    # null members in the same position cannot be unified, which is what
+                    # happens when the variable arrives as JSON.
+                    fallback_behavior = try(ja4_fingerprint.value.fallback_behavior, ja4_fingerprint.value)
                   }
                 }
               }
@@ -1893,7 +1928,12 @@ resource "aws_wafv2_web_acl" "default" {
                   for_each = lookup(field_to_match.value, "ja4_fingerprint", null) != null ? [field_to_match.value.ja4_fingerprint] : []
 
                   content {
-                    fallback_behavior = lookup(ja4_fingerprint.value, "fallback_behavior", "NO_MATCH")
+                    # Accepts either { fallback_behavior = "NO_MATCH" } or the bare string
+                    # "NO_MATCH". The string form matters when a caller keeps several
+                    # rules in one list: a list whose elements mix an object member with
+                    # null members in the same position cannot be unified, which is what
+                    # happens when the variable arrives as JSON.
+                    fallback_behavior = try(ja4_fingerprint.value.fallback_behavior, ja4_fingerprint.value)
                   }
                 }
               }
@@ -2030,7 +2070,12 @@ resource "aws_wafv2_web_acl" "default" {
                   for_each = lookup(field_to_match.value, "ja4_fingerprint", null) != null ? [field_to_match.value.ja4_fingerprint] : []
 
                   content {
-                    fallback_behavior = lookup(ja4_fingerprint.value, "fallback_behavior", "NO_MATCH")
+                    # Accepts either { fallback_behavior = "NO_MATCH" } or the bare string
+                    # "NO_MATCH". The string form matters when a caller keeps several
+                    # rules in one list: a list whose elements mix an object member with
+                    # null members in the same position cannot be unified, which is what
+                    # happens when the variable arrives as JSON.
+                    fallback_behavior = try(ja4_fingerprint.value.fallback_behavior, ja4_fingerprint.value)
                   }
                 }
               }
@@ -2167,7 +2212,12 @@ resource "aws_wafv2_web_acl" "default" {
                   for_each = lookup(field_to_match.value, "ja4_fingerprint", null) != null ? [field_to_match.value.ja4_fingerprint] : []
 
                   content {
-                    fallback_behavior = lookup(ja4_fingerprint.value, "fallback_behavior", "NO_MATCH")
+                    # Accepts either { fallback_behavior = "NO_MATCH" } or the bare string
+                    # "NO_MATCH". The string form matters when a caller keeps several
+                    # rules in one list: a list whose elements mix an object member with
+                    # null members in the same position cannot be unified, which is what
+                    # happens when the variable arrives as JSON.
+                    fallback_behavior = try(ja4_fingerprint.value.fallback_behavior, ja4_fingerprint.value)
                   }
                 }
               }

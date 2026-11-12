@@ -111,9 +111,13 @@ variable "byte_match_statement_rules" {
   }))
   default     = null
   description = <<-DOC
-    `statement.field_to_match` additionally supports `ja4_fingerprint`, taking
-    `{ fallback_behavior = "MATCH" | "NO_MATCH" }` (default `NO_MATCH`). It matches the TLS
-    client fingerprint, which survives source-IP rotation and user-agent spoofing.
+    `statement.field_to_match` additionally supports `ja4_fingerprint`, which matches the
+    TLS client fingerprint. A fingerprint survives source-IP rotation and user-agent
+    spoofing. Give it either `{ fallback_behavior = "MATCH" | "NO_MATCH" }` or the bare
+    string `"MATCH"` / `"NO_MATCH"` (default `NO_MATCH`), which says what to do with a
+    request whose fingerprint AWS WAF cannot compute. Prefer the string form when this
+    list holds other rules that do not match on JA4: their `ja4_fingerprint = null` and
+    an object in the same position cannot be unified into one list type.
 
     A rule statement that defines a string match search for AWS WAF to apply to web requests.
 
@@ -841,9 +845,13 @@ variable "regex_match_statement_rules" {
   }))
   default     = null
   description = <<-DOC
-    `statement.field_to_match` additionally supports `ja4_fingerprint`, taking
-    `{ fallback_behavior = "MATCH" | "NO_MATCH" }` (default `NO_MATCH`). It matches the TLS
-    client fingerprint, which survives source-IP rotation and user-agent spoofing.
+    `statement.field_to_match` additionally supports `ja4_fingerprint`, which matches the
+    TLS client fingerprint. A fingerprint survives source-IP rotation and user-agent
+    spoofing. Give it either `{ fallback_behavior = "MATCH" | "NO_MATCH" }` or the bare
+    string `"MATCH"` / `"NO_MATCH"` (default `NO_MATCH`), which says what to do with a
+    request whose fingerprint AWS WAF cannot compute. Prefer the string form when this
+    list holds other rules that do not match on JA4: their `ja4_fingerprint = null` and
+    an object in the same position cannot be unified into one list type.
 
     A rule statement used to search web request components for a match against a single regular expression.
 
