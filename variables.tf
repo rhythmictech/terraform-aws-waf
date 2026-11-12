@@ -111,6 +111,10 @@ variable "byte_match_statement_rules" {
   }))
   default     = null
   description = <<-DOC
+    `statement.field_to_match` additionally supports `ja4_fingerprint`, taking
+    `{ fallback_behavior = "MATCH" | "NO_MATCH" }` (default `NO_MATCH`). It matches the TLS
+    client fingerprint, which survives source-IP rotation and user-agent spoofing.
+
     A rule statement that defines a string match search for AWS WAF to apply to web requests.
 
     action:
@@ -837,6 +841,10 @@ variable "regex_match_statement_rules" {
   }))
   default     = null
   description = <<-DOC
+    `statement.field_to_match` additionally supports `ja4_fingerprint`, taking
+    `{ fallback_behavior = "MATCH" | "NO_MATCH" }` (default `NO_MATCH`). It matches the TLS
+    client fingerprint, which survives source-IP rotation and user-agent spoofing.
+
     A rule statement used to search web request components for a match against a single regular expression.
 
     action:

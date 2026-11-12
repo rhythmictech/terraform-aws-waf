@@ -270,6 +270,14 @@ resource "aws_wafv2_web_acl" "default" {
 
                   content {}
                 }
+
+                dynamic "ja4_fingerprint" {
+                  for_each = lookup(field_to_match.value, "ja4_fingerprint", null) != null ? [field_to_match.value.ja4_fingerprint] : []
+
+                  content {
+                    fallback_behavior = lookup(ja4_fingerprint.value, "fallback_behavior", "NO_MATCH")
+                  }
+                }
               }
             }
 
@@ -914,6 +922,14 @@ resource "aws_wafv2_web_acl" "default" {
                           for_each = lookup(field_to_match.value, "uri_path", null) != null ? [1] : []
                           content {}
                         }
+
+                        dynamic "ja4_fingerprint" {
+                          for_each = lookup(field_to_match.value, "ja4_fingerprint", null) != null ? [field_to_match.value.ja4_fingerprint] : []
+
+                          content {
+                            fallback_behavior = lookup(ja4_fingerprint.value, "fallback_behavior", "NO_MATCH")
+                          }
+                        }
                       }
                     }
 
@@ -988,6 +1004,14 @@ resource "aws_wafv2_web_acl" "default" {
                             dynamic "uri_path" {
                               for_each = lookup(field_to_match.value, "uri_path", null) != null ? [1] : []
                               content {}
+                            }
+
+                            dynamic "ja4_fingerprint" {
+                              for_each = lookup(field_to_match.value, "ja4_fingerprint", null) != null ? [field_to_match.value.ja4_fingerprint] : []
+
+                              content {
+                                fallback_behavior = lookup(ja4_fingerprint.value, "fallback_behavior", "NO_MATCH")
+                              }
                             }
                           }
                         }
@@ -1194,6 +1218,14 @@ resource "aws_wafv2_web_acl" "default" {
 
                           content {}
                         }
+
+                        dynamic "ja4_fingerprint" {
+                          for_each = lookup(field_to_match.value, "ja4_fingerprint", null) != null ? [field_to_match.value.ja4_fingerprint] : []
+
+                          content {
+                            fallback_behavior = lookup(ja4_fingerprint.value, "fallback_behavior", "NO_MATCH")
+                          }
+                        }
                       }
                     }
 
@@ -1263,6 +1295,14 @@ resource "aws_wafv2_web_acl" "default" {
                               dynamic "uri_path" {
                                 for_each = lookup(field_to_match.value, "uri_path", null) != null ? [1] : []
                                 content {}
+                              }
+
+                              dynamic "ja4_fingerprint" {
+                                for_each = lookup(field_to_match.value, "ja4_fingerprint", null) != null ? [field_to_match.value.ja4_fingerprint] : []
+
+                                content {
+                                  fallback_behavior = lookup(ja4_fingerprint.value, "fallback_behavior", "NO_MATCH")
+                                }
                               }
                             }
                           }
@@ -1397,6 +1437,14 @@ resource "aws_wafv2_web_acl" "default" {
 
                   content {}
                 }
+
+                dynamic "ja4_fingerprint" {
+                  for_each = lookup(field_to_match.value, "ja4_fingerprint", null) != null ? [field_to_match.value.ja4_fingerprint] : []
+
+                  content {
+                    fallback_behavior = lookup(ja4_fingerprint.value, "fallback_behavior", "NO_MATCH")
+                  }
+                }
               }
             }
 
@@ -1530,6 +1578,14 @@ resource "aws_wafv2_web_acl" "default" {
                   for_each = lookup(field_to_match.value, "uri_path", null) != null ? [1] : []
 
                   content {}
+                }
+
+                dynamic "ja4_fingerprint" {
+                  for_each = lookup(field_to_match.value, "ja4_fingerprint", null) != null ? [field_to_match.value.ja4_fingerprint] : []
+
+                  content {
+                    fallback_behavior = lookup(ja4_fingerprint.value, "fallback_behavior", "NO_MATCH")
+                  }
                 }
               }
             }
@@ -1832,6 +1888,14 @@ resource "aws_wafv2_web_acl" "default" {
 
                   content {}
                 }
+
+                dynamic "ja4_fingerprint" {
+                  for_each = lookup(field_to_match.value, "ja4_fingerprint", null) != null ? [field_to_match.value.ja4_fingerprint] : []
+
+                  content {
+                    fallback_behavior = lookup(ja4_fingerprint.value, "fallback_behavior", "NO_MATCH")
+                  }
+                }
               }
             }
 
@@ -1961,6 +2025,14 @@ resource "aws_wafv2_web_acl" "default" {
 
                   content {}
                 }
+
+                dynamic "ja4_fingerprint" {
+                  for_each = lookup(field_to_match.value, "ja4_fingerprint", null) != null ? [field_to_match.value.ja4_fingerprint] : []
+
+                  content {
+                    fallback_behavior = lookup(ja4_fingerprint.value, "fallback_behavior", "NO_MATCH")
+                  }
+                }
               }
             }
 
@@ -2089,6 +2161,14 @@ resource "aws_wafv2_web_acl" "default" {
                   for_each = lookup(field_to_match.value, "uri_path", null) != null ? [1] : []
 
                   content {}
+                }
+
+                dynamic "ja4_fingerprint" {
+                  for_each = lookup(field_to_match.value, "ja4_fingerprint", null) != null ? [field_to_match.value.ja4_fingerprint] : []
+
+                  content {
+                    fallback_behavior = lookup(ja4_fingerprint.value, "fallback_behavior", "NO_MATCH")
+                  }
                 }
               }
             }
