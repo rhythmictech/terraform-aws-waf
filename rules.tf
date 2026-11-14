@@ -2496,6 +2496,27 @@ resource "aws_wafv2_web_acl" "default" {
               }
             }
           }
+          # Optional last leg: carve paths out of the rule. RE2 has no lookahead, so an
+          # exclusion under a matched prefix needs its own NOT(regex_match uri_path).
+          dynamic "statement" {
+            for_each = rule.value.statement.not_uri_path_regex != null ? [1] : []
+            content {
+              not_statement {
+                statement {
+                  regex_match_statement {
+                    regex_string = rule.value.statement.not_uri_path_regex
+                    field_to_match {
+                      uri_path {}
+                    }
+                    text_transformation {
+                      priority = 0
+                      type     = "LOWERCASE"
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
 

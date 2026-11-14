@@ -1367,6 +1367,7 @@ variable "and_match_statement_rules" {
         scope = string
         key   = string
       }), null)
+      not_uri_path_regex = optional(string, null)
     })
     visibility_config = optional(object({
       cloudwatch_metrics_enabled = optional(bool)
@@ -1380,6 +1381,8 @@ variable "and_match_statement_rules" {
     Scopes an action (e.g. captcha) to a Host AND a geo/label condition without the generic
     and/or/not plumbing. Express "host AND (foreign OR anonymous)" as two rules: one with
     not_geo_country_codes, one with label_match.
+    not_uri_path_regex adds a final AND NOT(regex_match uri_path) leg, to carve paths out
+    from under a matched prefix (RE2 has no lookahead).
   DOC
 }
 
